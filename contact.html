@@ -86,15 +86,7 @@ nav a:hover{color:#fff;} nav a:hover::after,nav a.active::after{width:100%;} nav
     radial-gradient(ellipse 50% 70% at 80% 80%, rgba(240,208,128,0.04) 0%, transparent 50%),
     linear-gradient(to bottom, transparent 70%, var(--black) 100%);
 }
-.contact-hero::after {
-  content: '';
-  position: absolute; bottom: 0; left: 50%;
-  transform: translateX(-50%);
-  width: 1px; height: 80px;
-  background: linear-gradient(to bottom, rgba(240,208,128,0.5), transparent);
-  animation: lineGrow 1.5s ease 1s both;
-}
-@keyframes lineGrow { from { height: 0; opacity: 0; } to { height: 80px; opacity: 1; } }
+.contact-hero::after { display: none; }
 /* Animated dots grid */
 .hero-dots {
   position: absolute; inset: 0;
@@ -153,8 +145,8 @@ nav a:hover{color:#fff;} nav a:hover::after,nav a.active::after{width:100%;} nav
   opacity: 0; animation: fadeUp 0.8s ease 0.5s forwards;
 }
 .hero-scroll-hint {
-  position: absolute; bottom: 100px; left: 50%;
-  transform: translateX(-50%);
+  position: absolute; bottom: 100px; left: 0; right: 0;
+  margin: 0 auto; width: fit-content;
   display: flex; flex-direction: column; align-items: center; gap: 8px;
   opacity: 0; animation: fadeUp 0.6s ease 1.2s forwards;
 }
@@ -163,8 +155,9 @@ nav a:hover{color:#fff;} nav a:hover::after,nav a.active::after{width:100%;} nav
   text-transform: uppercase; color: var(--text-4); font-weight: 500;
 }
 .hero-scroll-line {
-  width: 1px; height: 32px;
+  width: 1px; height: 120px;
   background: linear-gradient(to bottom, var(--gold), transparent);
+  transform-origin: top;
   animation: scrollPulse 2s ease-in-out infinite;
 }
 @keyframes scrollPulse {
@@ -1332,8 +1325,8 @@ textarea.field-input { resize: vertical; min-height: 110px; }
 
     <!-- Aperçu carte à droite -->
     <div class="trouver-map-preview">
-      <iframe src="point_de_ventes.html" style="pointer-events:none; width:100%; height:100%; border:none;"></iframe>
-      <a href="point_de_ventes.html" target="_blank" class="trouver-map-cta">
+      <iframe src="map-embed.html" style="pointer-events:none; width:100%; height:100%; border:none;"></iframe>
+      <a href="map-embed.html" target="_blank" class="trouver-map-cta">
         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg> Voir la carte complète ↗
       </a>
     </div>
